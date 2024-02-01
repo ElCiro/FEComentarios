@@ -1,0 +1,6 @@
+---xcre<ar frontEnd---
+-- checar la version de ng = 12
+--instalar bootstrap 5.0.2
+--crear componentes,interfaces, servicios(cenectarnos con un backend, reutilizar codigo. etc)
+---modificar navbar
+--modificar list comentario
