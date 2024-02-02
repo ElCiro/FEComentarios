@@ -3,10 +3,10 @@
         <h3>Listado de comentarios</h3>
     </div>
     <div class="col-lg-6">
-        <button class="btn btn-primary float-end">Nuevo Comentario</button>
+        <button class="btn btn-primary float-end" routerLink="/agregar">Nuevo Comentario</button>
     </div>
 </div>
-<table class="table table-hover mt-3">
+<table *ngIf="listComentarios.length>0" class="table table-hover mt-3">
     <thead>
         <td>Titulo</td>
         <td>Creador</td>
@@ -15,17 +15,19 @@
         <td></td>
     </thead>
     <thead>
-        <td>Angular</td>
-        <td>Ciro</td>
-        <td>31/01/2024</td>
-        <td></td>
-        <td></td>
-    </thead>
-    <thead>
-        <td>Angular</td>
-        <td>Ciro</td>
-        <td>31/01/2024</td>
-        <td></td>
-        <td></td>
+        <tr *ngFor ="let comentario of listComentarios">
+        <td>{{comentario.titulo}}</td>
+        <td>{{comentario.creador}}</td>
+        <td>{{comentario.fechaCreacion | date:'dd/MM/yyyy'}}</td>
+        <td style="width:10%">
+            <button class="btn btn-primary btn-sm float-end" routerLink="'/agregar/:id'">Editar</button>
+        </td>
+        <td style="width:10%">
+            <button class="btn btn-danger btn-sm float-end">Eliminar</button>
+        </td>
+        </tr>
     </thead>
 </table>
+<div *ngIf="listComentarios.length===0" class="row mt-5">
+    <h5>No  hay más registros.</h5>
+</div>
